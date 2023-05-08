@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: states-deployment
+  labels:
+    app: states
+spec:
+  selector:
+    matchLabels:
+      app: states
+  template:
+    metadata:
+      labels:
+        app: states
+    spec:
+      containers:
+        - name: states
+          image: localhost:32000/states:registry
+          ports:
+            - containerPort: 3000
